@@ -15,8 +15,7 @@ public class AlertRabbit {
 
     public static Properties loadConfig() {
         Properties properties = new Properties();
-        InputStream is = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties");
-        try {
+        try (InputStream is = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties")) {
             properties.load(is);
         } catch (IOException e) {
             e.printStackTrace();
